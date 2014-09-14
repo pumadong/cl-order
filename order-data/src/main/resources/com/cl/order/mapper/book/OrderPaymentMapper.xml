@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cl.order.mapper.book.OrderPaymentMapper" >
+  <resultMap id="BaseResultMap" type="com.cl.order.model.book.OrderPayment" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="form_code" property="formCode" jdbcType="VARCHAR" />
+    <result column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="payment_type_name" property="paymentTypeName" jdbcType="VARCHAR" />
+    <result column="payment_money" property="paymentMoney" jdbcType="DECIMAL" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, form_code, payment_type_id, payment_type_name, payment_money, create_person, 
+    create_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from o_order_payment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from o_order_payment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cl.order.model.book.OrderPayment" >
+    insert into o_order_payment (id, form_code, payment_type_id, 
+      payment_type_name, payment_money, create_person, 
+      create_date)
+    values (#{id,jdbcType=INTEGER}, #{formCode,jdbcType=VARCHAR}, #{paymentTypeId,jdbcType=INTEGER}, 
+      #{paymentTypeName,jdbcType=VARCHAR}, #{paymentMoney,jdbcType=DECIMAL}, #{createPerson,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cl.order.model.book.OrderPayment" >
+    insert into o_order_payment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="formCode != null" >
+        form_code,
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id,
+      </if>
+      <if test="paymentTypeName != null" >
+        payment_type_name,
+      </if>
+      <if test="paymentMoney != null" >
+        payment_money,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="formCode != null" >
+        #{formCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentTypeId != null" >
+        #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeName != null" >
+        #{paymentTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentMoney != null" >
+        #{paymentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cl.order.model.book.OrderPayment" >
+    update o_order_payment
+    <set >
+      <if test="formCode != null" >
+        form_code = #{formCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeName != null" >
+        payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentMoney != null" >
+        payment_money = #{paymentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cl.order.model.book.OrderPayment" >
+    update o_order_payment
+    set form_code = #{formCode,jdbcType=VARCHAR},
+      payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
+      payment_money = #{paymentMoney,jdbcType=DECIMAL},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cl.order.mapper.aftersales.RefundFormMapper" >
+  <resultMap id="BaseResultMap" type="com.cl.order.model.aftersales.RefundForm" >
+    <id column="refund_code" property="refundCode" jdbcType="VARCHAR" />
+    <result column="form_code" property="formCode" jdbcType="VARCHAR" />
+    <result column="return_code" property="returnCode" jdbcType="VARCHAR" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="refund_type_id" property="refundTypeId" jdbcType="INTEGER" />
+    <result column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="refund_money" property="refundMoney" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    refund_code, form_code, return_code, member_id, refund_type_id, payment_type_id, 
+    refund_money, status, create_person, create_date, update_person, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from o_refund_form
+    where refund_code = #{refundCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from o_refund_form
+    where refund_code = #{refundCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cl.order.model.aftersales.RefundForm" >
+    insert into o_refund_form (refund_code, form_code, return_code, 
+      member_id, refund_type_id, payment_type_id, 
+      refund_money, status, create_person, 
+      create_date, update_person, update_date
+      )
+    values (#{refundCode,jdbcType=VARCHAR}, #{formCode,jdbcType=VARCHAR}, #{returnCode,jdbcType=VARCHAR}, 
+      #{memberId,jdbcType=INTEGER}, #{refundTypeId,jdbcType=INTEGER}, #{paymentTypeId,jdbcType=INTEGER}, 
+      #{refundMoney,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, #{createPerson,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cl.order.model.aftersales.RefundForm" >
+    insert into o_refund_form
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="refundCode != null" >
+        refund_code,
+      </if>
+      <if test="formCode != null" >
+        form_code,
+      </if>
+      <if test="returnCode != null" >
+        return_code,
+      </if>
+      <if test="memberId != null" >
+        member_id,
+      </if>
+      <if test="refundTypeId != null" >
+        refund_type_id,
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id,
+      </if>
+      <if test="refundMoney != null" >
+        refund_money,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updatePerson != null" >
+        update_person,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="refundCode != null" >
+        #{refundCode,jdbcType=VARCHAR},
+      </if>
+      <if test="formCode != null" >
+        #{formCode,jdbcType=VARCHAR},
+      </if>
+      <if test="returnCode != null" >
+        #{returnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null" >
+        #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="refundTypeId != null" >
+        #{refundTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeId != null" >
+        #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="refundMoney != null" >
+        #{refundMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cl.order.model.aftersales.RefundForm" >
+    update o_refund_form
+    <set >
+      <if test="formCode != null" >
+        form_code = #{formCode,jdbcType=VARCHAR},
+      </if>
+      <if test="returnCode != null" >
+        return_code = #{returnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null" >
+        member_id = #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="refundTypeId != null" >
+        refund_type_id = #{refundTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="refundMoney != null" >
+        refund_money = #{refundMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where refund_code = #{refundCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cl.order.model.aftersales.RefundForm" >
+    update o_refund_form
+    set form_code = #{formCode,jdbcType=VARCHAR},
+      return_code = #{returnCode,jdbcType=VARCHAR},
+      member_id = #{memberId,jdbcType=INTEGER},
+      refund_type_id = #{refundTypeId,jdbcType=INTEGER},
+      payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      refund_money = #{refundMoney,jdbcType=DECIMAL},
+      status = #{status,jdbcType=INTEGER},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_person = #{updatePerson,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where refund_code = #{refundCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

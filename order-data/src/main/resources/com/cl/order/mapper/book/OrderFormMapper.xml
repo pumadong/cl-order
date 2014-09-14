@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cl.order.mapper.book.OrderFormMapper" >
+  <resultMap id="BaseResultMap" type="com.cl.order.model.book.OrderForm" >
+    <id column="form_code" property="formCode" jdbcType="VARCHAR" />
+    <result column="main_form_code" property="mainFormCode" jdbcType="VARCHAR" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="consignee_id" property="consigneeId" jdbcType="INTEGER" />
+    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+    <result column="goods_price" property="goodsPrice" jdbcType="DECIMAL" />
+    <result column="deliver_price" property="deliverPrice" jdbcType="DECIMAL" />
+    <result column="paid_price" property="paidPrice" jdbcType="DECIMAL" />
+    <result column="warehouse_id" property="warehouseId" jdbcType="INTEGER" />
+    <result column="warehouse_name" property="warehouseName" jdbcType="VARCHAR" />
+    <result column="deliver_type_id" property="deliverTypeId" jdbcType="INTEGER" />
+    <result column="deliver_type_name" property="deliverTypeName" jdbcType="VARCHAR" />
+    <result column="express_id" property="expressId" jdbcType="INTEGER" />
+    <result column="express_name" property="expressName" jdbcType="VARCHAR" />
+    <result column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="payment_type_name" property="paymentTypeName" jdbcType="VARCHAR" />
+    <result column="quality" property="quality" jdbcType="INTEGER" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="payment_status" property="paymentStatus" jdbcType="INTEGER" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    form_code, main_form_code, member_id, consignee_id, total_price, goods_price, deliver_price, 
+    paid_price, warehouse_id, warehouse_name, deliver_type_id, deliver_type_name, express_id, 
+    express_name, payment_type_id, payment_type_name, quality, weight, status, payment_status, 
+    create_person, create_date, update_person, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from o_order_form
+    where form_code = #{formCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from o_order_form
+    where form_code = #{formCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cl.order.model.book.OrderForm" >
+    insert into o_order_form (form_code, main_form_code, member_id, 
+      consignee_id, total_price, goods_price, 
+      deliver_price, paid_price, warehouse_id, 
+      warehouse_name, deliver_type_id, deliver_type_name, 
+      express_id, express_name, payment_type_id, 
+      payment_type_name, quality, weight, 
+      status, payment_status, create_person, 
+      create_date, update_person, update_date
+      )
+    values (#{formCode,jdbcType=VARCHAR}, #{mainFormCode,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, 
+      #{consigneeId,jdbcType=INTEGER}, #{totalPrice,jdbcType=DECIMAL}, #{goodsPrice,jdbcType=DECIMAL}, 
+      #{deliverPrice,jdbcType=DECIMAL}, #{paidPrice,jdbcType=DECIMAL}, #{warehouseId,jdbcType=INTEGER}, 
+      #{warehouseName,jdbcType=VARCHAR}, #{deliverTypeId,jdbcType=INTEGER}, #{deliverTypeName,jdbcType=VARCHAR}, 
+      #{expressId,jdbcType=INTEGER}, #{expressName,jdbcType=VARCHAR}, #{paymentTypeId,jdbcType=INTEGER}, 
+      #{paymentTypeName,jdbcType=VARCHAR}, #{quality,jdbcType=INTEGER}, #{weight,jdbcType=DOUBLE}, 
+      #{status,jdbcType=INTEGER}, #{paymentStatus,jdbcType=INTEGER}, #{createPerson,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cl.order.model.book.OrderForm" >
+    insert into o_order_form
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="formCode != null" >
+        form_code,
+      </if>
+      <if test="mainFormCode != null" >
+        main_form_code,
+      </if>
+      <if test="memberId != null" >
+        member_id,
+      </if>
+      <if test="consigneeId != null" >
+        consignee_id,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price,
+      </if>
+      <if test="deliverPrice != null" >
+        deliver_price,
+      </if>
+      <if test="paidPrice != null" >
+        paid_price,
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id,
+      </if>
+      <if test="warehouseName != null" >
+        warehouse_name,
+      </if>
+      <if test="deliverTypeId != null" >
+        deliver_type_id,
+      </if>
+      <if test="deliverTypeName != null" >
+        deliver_type_name,
+      </if>
+      <if test="expressId != null" >
+        express_id,
+      </if>
+      <if test="expressName != null" >
+        express_name,
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id,
+      </if>
+      <if test="paymentTypeName != null" >
+        payment_type_name,
+      </if>
+      <if test="quality != null" >
+        quality,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="paymentStatus != null" >
+        payment_status,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updatePerson != null" >
+        update_person,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="formCode != null" >
+        #{formCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mainFormCode != null" >
+        #{mainFormCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null" >
+        #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="consigneeId != null" >
+        #{consigneeId,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsPrice != null" >
+        #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverPrice != null" >
+        #{deliverPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="paidPrice != null" >
+        #{paidPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="warehouseId != null" >
+        #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseName != null" >
+        #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverTypeId != null" >
+        #{deliverTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="deliverTypeName != null" >
+        #{deliverTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="expressId != null" >
+        #{expressId,jdbcType=INTEGER},
+      </if>
+      <if test="expressName != null" >
+        #{expressName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentTypeId != null" >
+        #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeName != null" >
+        #{paymentTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="quality != null" >
+        #{quality,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="paymentStatus != null" >
+        #{paymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cl.order.model.book.OrderForm" >
+    update o_order_form
+    <set >
+      <if test="mainFormCode != null" >
+        main_form_code = #{mainFormCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null" >
+        member_id = #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="consigneeId != null" >
+        consignee_id = #{consigneeId,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverPrice != null" >
+        deliver_price = #{deliverPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="paidPrice != null" >
+        paid_price = #{paidPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseName != null" >
+        warehouse_name = #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverTypeId != null" >
+        deliver_type_id = #{deliverTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="deliverTypeName != null" >
+        deliver_type_name = #{deliverTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="expressId != null" >
+        express_id = #{expressId,jdbcType=INTEGER},
+      </if>
+      <if test="expressName != null" >
+        express_name = #{expressName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeName != null" >
+        payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="quality != null" >
+        quality = #{quality,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="paymentStatus != null" >
+        payment_status = #{paymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where form_code = #{formCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cl.order.model.book.OrderForm" >
+    update o_order_form
+    set main_form_code = #{mainFormCode,jdbcType=VARCHAR},
+      member_id = #{memberId,jdbcType=INTEGER},
+      consignee_id = #{consigneeId,jdbcType=INTEGER},
+      total_price = #{totalPrice,jdbcType=DECIMAL},
+      goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      deliver_price = #{deliverPrice,jdbcType=DECIMAL},
+      paid_price = #{paidPrice,jdbcType=DECIMAL},
+      warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      warehouse_name = #{warehouseName,jdbcType=VARCHAR},
+      deliver_type_id = #{deliverTypeId,jdbcType=INTEGER},
+      deliver_type_name = #{deliverTypeName,jdbcType=VARCHAR},
+      express_id = #{expressId,jdbcType=INTEGER},
+      express_name = #{expressName,jdbcType=VARCHAR},
+      payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
+      quality = #{quality,jdbcType=INTEGER},
+      weight = #{weight,jdbcType=DOUBLE},
+      status = #{status,jdbcType=INTEGER},
+      payment_status = #{paymentStatus,jdbcType=INTEGER},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_person = #{updatePerson,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where form_code = #{formCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

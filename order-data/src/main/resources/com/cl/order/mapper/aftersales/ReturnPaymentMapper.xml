@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cl.order.mapper.aftersales.ReturnPaymentMapper" >
+  <resultMap id="BaseResultMap" type="com.cl.order.model.aftersales.ReturnPayment" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="return_code" property="returnCode" jdbcType="VARCHAR" />
+    <result column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="payment_type_name" property="paymentTypeName" jdbcType="VARCHAR" />
+    <result column="return_money" property="returnMoney" jdbcType="DECIMAL" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, return_code, payment_type_id, payment_type_name, return_money, create_person, 
+    create_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from o_return_payment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from o_return_payment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cl.order.model.aftersales.ReturnPayment" >
+    insert into o_return_payment (id, return_code, payment_type_id, 
+      payment_type_name, return_money, create_person, 
+      create_date)
+    values (#{id,jdbcType=INTEGER}, #{returnCode,jdbcType=VARCHAR}, #{paymentTypeId,jdbcType=INTEGER}, 
+      #{paymentTypeName,jdbcType=VARCHAR}, #{returnMoney,jdbcType=DECIMAL}, #{createPerson,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cl.order.model.aftersales.ReturnPayment" >
+    insert into o_return_payment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="returnCode != null" >
+        return_code,
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id,
+      </if>
+      <if test="paymentTypeName != null" >
+        payment_type_name,
+      </if>
+      <if test="returnMoney != null" >
+        return_money,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="returnCode != null" >
+        #{returnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentTypeId != null" >
+        #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeName != null" >
+        #{paymentTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="returnMoney != null" >
+        #{returnMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cl.order.model.aftersales.ReturnPayment" >
+    update o_return_payment
+    <set >
+      <if test="returnCode != null" >
+        return_code = #{returnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeName != null" >
+        payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="returnMoney != null" >
+        return_money = #{returnMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cl.order.model.aftersales.ReturnPayment" >
+    update o_return_payment
+    set return_code = #{returnCode,jdbcType=VARCHAR},
+      payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
+      return_money = #{returnMoney,jdbcType=DECIMAL},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

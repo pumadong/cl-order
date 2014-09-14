@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cl.order.mapper.aftersales.AcceptFormMapper" >
+  <resultMap id="BaseResultMap" type="com.cl.order.model.aftersales.AcceptForm" >
+    <id column="accept_code" property="acceptCode" jdbcType="VARCHAR" />
+    <result column="form_code" property="formCode" jdbcType="VARCHAR" />
+    <result column="return_type_id" property="returnTypeId" jdbcType="INTEGER" />
+    <result column="consignee_id" property="consigneeId" jdbcType="INTEGER" />
+    <result column="return_money" property="returnMoney" jdbcType="DECIMAL" />
+    <result column="exchange_money" property="exchangeMoney" jdbcType="DECIMAL" />
+    <result column="warehouse_id" property="warehouseId" jdbcType="INTEGER" />
+    <result column="warehouse_name" property="warehouseName" jdbcType="VARCHAR" />
+    <result column="exchange_form_code" property="exchangeFormCode" jdbcType="VARCHAR" />
+    <result column="reason_id" property="reasonId" jdbcType="INTEGER" />
+    <result column="reason_name" property="reasonName" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    accept_code, form_code, return_type_id, consignee_id, return_money, exchange_money, 
+    warehouse_id, warehouse_name, exchange_form_code, reason_id, reason_name, status, 
+    create_person, create_date, update_person, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from o_accept_form
+    where accept_code = #{acceptCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from o_accept_form
+    where accept_code = #{acceptCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cl.order.model.aftersales.AcceptForm" >
+    insert into o_accept_form (accept_code, form_code, return_type_id, 
+      consignee_id, return_money, exchange_money, 
+      warehouse_id, warehouse_name, exchange_form_code, 
+      reason_id, reason_name, status, 
+      create_person, create_date, update_person, 
+      update_date)
+    values (#{acceptCode,jdbcType=VARCHAR}, #{formCode,jdbcType=VARCHAR}, #{returnTypeId,jdbcType=INTEGER}, 
+      #{consigneeId,jdbcType=INTEGER}, #{returnMoney,jdbcType=DECIMAL}, #{exchangeMoney,jdbcType=DECIMAL}, 
+      #{warehouseId,jdbcType=INTEGER}, #{warehouseName,jdbcType=VARCHAR}, #{exchangeFormCode,jdbcType=VARCHAR}, 
+      #{reasonId,jdbcType=INTEGER}, #{reasonName,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cl.order.model.aftersales.AcceptForm" >
+    insert into o_accept_form
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="acceptCode != null" >
+        accept_code,
+      </if>
+      <if test="formCode != null" >
+        form_code,
+      </if>
+      <if test="returnTypeId != null" >
+        return_type_id,
+      </if>
+      <if test="consigneeId != null" >
+        consignee_id,
+      </if>
+      <if test="returnMoney != null" >
+        return_money,
+      </if>
+      <if test="exchangeMoney != null" >
+        exchange_money,
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id,
+      </if>
+      <if test="warehouseName != null" >
+        warehouse_name,
+      </if>
+      <if test="exchangeFormCode != null" >
+        exchange_form_code,
+      </if>
+      <if test="reasonId != null" >
+        reason_id,
+      </if>
+      <if test="reasonName != null" >
+        reason_name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updatePerson != null" >
+        update_person,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="acceptCode != null" >
+        #{acceptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="formCode != null" >
+        #{formCode,jdbcType=VARCHAR},
+      </if>
+      <if test="returnTypeId != null" >
+        #{returnTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="consigneeId != null" >
+        #{consigneeId,jdbcType=INTEGER},
+      </if>
+      <if test="returnMoney != null" >
+        #{returnMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="exchangeMoney != null" >
+        #{exchangeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="warehouseId != null" >
+        #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseName != null" >
+        #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangeFormCode != null" >
+        #{exchangeFormCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reasonId != null" >
+        #{reasonId,jdbcType=INTEGER},
+      </if>
+      <if test="reasonName != null" >
+        #{reasonName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cl.order.model.aftersales.AcceptForm" >
+    update o_accept_form
+    <set >
+      <if test="formCode != null" >
+        form_code = #{formCode,jdbcType=VARCHAR},
+      </if>
+      <if test="returnTypeId != null" >
+        return_type_id = #{returnTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="consigneeId != null" >
+        consignee_id = #{consigneeId,jdbcType=INTEGER},
+      </if>
+      <if test="returnMoney != null" >
+        return_money = #{returnMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="exchangeMoney != null" >
+        exchange_money = #{exchangeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseName != null" >
+        warehouse_name = #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangeFormCode != null" >
+        exchange_form_code = #{exchangeFormCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reasonId != null" >
+        reason_id = #{reasonId,jdbcType=INTEGER},
+      </if>
+      <if test="reasonName != null" >
+        reason_name = #{reasonName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where accept_code = #{acceptCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cl.order.model.aftersales.AcceptForm" >
+    update o_accept_form
+    set form_code = #{formCode,jdbcType=VARCHAR},
+      return_type_id = #{returnTypeId,jdbcType=INTEGER},
+      consignee_id = #{consigneeId,jdbcType=INTEGER},
+      return_money = #{returnMoney,jdbcType=DECIMAL},
+      exchange_money = #{exchangeMoney,jdbcType=DECIMAL},
+      warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      warehouse_name = #{warehouseName,jdbcType=VARCHAR},
+      exchange_form_code = #{exchangeFormCode,jdbcType=VARCHAR},
+      reason_id = #{reasonId,jdbcType=INTEGER},
+      reason_name = #{reasonName,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_person = #{updatePerson,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where accept_code = #{acceptCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

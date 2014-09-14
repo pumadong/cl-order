@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cl.order.mapper.aftersales.AcceptLogMapper" >
+  <resultMap id="BaseResultMap" type="com.cl.order.model.aftersales.AcceptLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="accept_code" property="acceptCode" jdbcType="VARCHAR" />
+    <result column="log_type_id" property="logTypeId" jdbcType="INTEGER" />
+    <result column="log_content" property="logContent" jdbcType="VARCHAR" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="create_ip" property="createIp" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, accept_code, log_type_id, log_content, create_person, create_date, create_ip
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from o_accept_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from o_accept_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cl.order.model.aftersales.AcceptLog" >
+    insert into o_accept_log (id, accept_code, log_type_id, 
+      log_content, create_person, create_date, 
+      create_ip)
+    values (#{id,jdbcType=INTEGER}, #{acceptCode,jdbcType=VARCHAR}, #{logTypeId,jdbcType=INTEGER}, 
+      #{logContent,jdbcType=VARCHAR}, #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{createIp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cl.order.model.aftersales.AcceptLog" >
+    insert into o_accept_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="acceptCode != null" >
+        accept_code,
+      </if>
+      <if test="logTypeId != null" >
+        log_type_id,
+      </if>
+      <if test="logContent != null" >
+        log_content,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="createIp != null" >
+        create_ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="acceptCode != null" >
+        #{acceptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="logTypeId != null" >
+        #{logTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="logContent != null" >
+        #{logContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createIp != null" >
+        #{createIp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cl.order.model.aftersales.AcceptLog" >
+    update o_accept_log
+    <set >
+      <if test="acceptCode != null" >
+        accept_code = #{acceptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="logTypeId != null" >
+        log_type_id = #{logTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="logContent != null" >
+        log_content = #{logContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createIp != null" >
+        create_ip = #{createIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cl.order.model.aftersales.AcceptLog" >
+    update o_accept_log
+    set accept_code = #{acceptCode,jdbcType=VARCHAR},
+      log_type_id = #{logTypeId,jdbcType=INTEGER},
+      log_content = #{logContent,jdbcType=VARCHAR},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_ip = #{createIp,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

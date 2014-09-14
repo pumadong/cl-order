@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cl.order.mapper.book.OrderMainFormMapper" >
+  <resultMap id="BaseResultMap" type="com.cl.order.model.book.OrderMainForm" >
+    <id column="form_code" property="formCode" jdbcType="VARCHAR" />
+    <result column="order_type_id" property="orderTypeId" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="consignee_id" property="consigneeId" jdbcType="INTEGER" />
+    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+    <result column="goods_price" property="goodsPrice" jdbcType="DECIMAL" />
+    <result column="deliver_price" property="deliverPrice" jdbcType="DECIMAL" />
+    <result column="paid_price" property="paidPrice" jdbcType="DECIMAL" />
+    <result column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="payment_type_name" property="paymentTypeName" jdbcType="VARCHAR" />
+    <result column="payment_status" property="paymentStatus" jdbcType="INTEGER" />
+    <result column="source_ref_id" property="sourceRefId" jdbcType="INTEGER" />
+    <result column="source_pos_id" property="sourcePosId" jdbcType="INTEGER" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    form_code, order_type_id, member_id, consignee_id, total_price, goods_price, deliver_price, 
+    paid_price, payment_type_id, payment_type_name, payment_status, source_ref_id, source_pos_id, 
+    create_person, create_date, update_person, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from o_order_main_form
+    where form_code = #{formCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from o_order_main_form
+    where form_code = #{formCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cl.order.model.book.OrderMainForm" >
+    insert into o_order_main_form (form_code, order_type_id, member_id, 
+      consignee_id, total_price, goods_price, 
+      deliver_price, paid_price, payment_type_id, 
+      payment_type_name, payment_status, source_ref_id, 
+      source_pos_id, create_person, create_date, 
+      update_person, update_date)
+    values (#{formCode,jdbcType=VARCHAR}, #{orderTypeId,jdbcType=INTEGER}, #{memberId,jdbcType=INTEGER}, 
+      #{consigneeId,jdbcType=INTEGER}, #{totalPrice,jdbcType=DECIMAL}, #{goodsPrice,jdbcType=DECIMAL}, 
+      #{deliverPrice,jdbcType=DECIMAL}, #{paidPrice,jdbcType=DECIMAL}, #{paymentTypeId,jdbcType=INTEGER}, 
+      #{paymentTypeName,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=INTEGER}, #{sourceRefId,jdbcType=INTEGER}, 
+      #{sourcePosId,jdbcType=INTEGER}, #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updatePerson,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cl.order.model.book.OrderMainForm" >
+    insert into o_order_main_form
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="formCode != null" >
+        form_code,
+      </if>
+      <if test="orderTypeId != null" >
+        order_type_id,
+      </if>
+      <if test="memberId != null" >
+        member_id,
+      </if>
+      <if test="consigneeId != null" >
+        consignee_id,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price,
+      </if>
+      <if test="deliverPrice != null" >
+        deliver_price,
+      </if>
+      <if test="paidPrice != null" >
+        paid_price,
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id,
+      </if>
+      <if test="paymentTypeName != null" >
+        payment_type_name,
+      </if>
+      <if test="paymentStatus != null" >
+        payment_status,
+      </if>
+      <if test="sourceRefId != null" >
+        source_ref_id,
+      </if>
+      <if test="sourcePosId != null" >
+        source_pos_id,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updatePerson != null" >
+        update_person,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="formCode != null" >
+        #{formCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTypeId != null" >
+        #{orderTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="memberId != null" >
+        #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="consigneeId != null" >
+        #{consigneeId,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsPrice != null" >
+        #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverPrice != null" >
+        #{deliverPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="paidPrice != null" >
+        #{paidPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentTypeId != null" >
+        #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeName != null" >
+        #{paymentTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatus != null" >
+        #{paymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sourceRefId != null" >
+        #{sourceRefId,jdbcType=INTEGER},
+      </if>
+      <if test="sourcePosId != null" >
+        #{sourcePosId,jdbcType=INTEGER},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cl.order.model.book.OrderMainForm" >
+    update o_order_main_form
+    <set >
+      <if test="orderTypeId != null" >
+        order_type_id = #{orderTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="memberId != null" >
+        member_id = #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="consigneeId != null" >
+        consignee_id = #{consigneeId,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverPrice != null" >
+        deliver_price = #{deliverPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="paidPrice != null" >
+        paid_price = #{paidPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentTypeId != null" >
+        payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTypeName != null" >
+        payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatus != null" >
+        payment_status = #{paymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sourceRefId != null" >
+        source_ref_id = #{sourceRefId,jdbcType=INTEGER},
+      </if>
+      <if test="sourcePosId != null" >
+        source_pos_id = #{sourcePosId,jdbcType=INTEGER},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where form_code = #{formCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cl.order.model.book.OrderMainForm" >
+    update o_order_main_form
+    set order_type_id = #{orderTypeId,jdbcType=INTEGER},
+      member_id = #{memberId,jdbcType=INTEGER},
+      consignee_id = #{consigneeId,jdbcType=INTEGER},
+      total_price = #{totalPrice,jdbcType=DECIMAL},
+      goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      deliver_price = #{deliverPrice,jdbcType=DECIMAL},
+      paid_price = #{paidPrice,jdbcType=DECIMAL},
+      payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
+      payment_status = #{paymentStatus,jdbcType=INTEGER},
+      source_ref_id = #{sourceRefId,jdbcType=INTEGER},
+      source_pos_id = #{sourcePosId,jdbcType=INTEGER},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_person = #{updatePerson,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where form_code = #{formCode,jdbcType=VARCHAR}
+  </update>
+</mapper>
