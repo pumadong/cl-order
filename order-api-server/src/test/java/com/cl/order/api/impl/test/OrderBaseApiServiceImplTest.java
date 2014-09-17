@@ -33,7 +33,7 @@ public class OrderBaseApiServiceImplTest {
 		Dictionary dictionary = service.getDictionaryById(1);
 		if(dictionary == null)
 		{
-			System.out.println("supplier is null");
+			System.out.println("dictionary is null");
 		} else {
 			System.out.println(dictionary.getName());
 		}
