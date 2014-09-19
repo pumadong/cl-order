@@ -1,7 +1,6 @@
 #BEGIN*************************表单列表***************************BEGIN
 #. o_order_main_form ：订单主表
 #. o_order_main_detail ：订单主表明细表
-#. o_order_consignee ：订单收货人
 #. o_order_form ：订单子表
 #. o_order_detail ：订单明细表
 #. o_order_payment ：订单支付表
@@ -120,30 +119,6 @@ PRIMARY KEY (`id`) ,
 INDEX `idx_order_detail_form_code` (`form_code`) USING BTREE 
 )
 COMMENT='订单子表明细'
-;
-
-#订单收货人表
-DROP TABLE IF EXISTS `o_order_consignee`;
-CREATE TABLE `o_order_consignee` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
-`user_id`  int NOT NULL DEFAULT 0 COMMENT '用户ID' ,
-`province`  varchar(20) NOT NULL DEFAULT '' COMMENT '省份' ,
-`city`  varchar(20) NOT NULL DEFAULT '' COMMENT '城市' ,
-`area`  varchar(20) NOT NULL DEFAULT '' COMMENT '地区' ,
-`address`  varchar(200) NOT NULL DEFAULT '' COMMENT '地址' ,
-`postcode`  varchar(6) NOT NULL DEFAULT '' COMMENT '邮编' ,
-`consignee`  varchar(50) NOT NULL DEFAULT '' COMMENT '收货人' ,
-`telephone`  varchar(30) NOT NULL DEFAULT '' COMMENT '电话' ,
-`mobile`  varchar(11) NOT NULL DEFAULT '' COMMENT '手机' ,
-`email`  varchar(50) NOT NULL DEFAULT '' COMMENT 'Email' ,
-`is_delete`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除：1是0否' ,
-`create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
-`create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
-`update_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '更新人' ,
-`update_date`  datetime NOT NULL COMMENT '更新时间' ,
-PRIMARY KEY (`id`)
-)
-COMMENT='订单收货人表'
 ;
 
 #订单支付明细表

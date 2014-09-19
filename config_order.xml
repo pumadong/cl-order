@@ -51,7 +51,6 @@
 
         <table tableName="o_order_main_form" domainObjectName="OrderMainForm" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
 		<table tableName="o_order_main_detail" domainObjectName="OrderMainDetail" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
-		<table tableName="o_order_consignee" domainObjectName="OrderConsignee" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
 		<table tableName="o_order_form" domainObjectName="OrderForm" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
 		<table tableName="o_order_detail" domainObjectName="OrderDetail" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
 		<table tableName="o_order_payment" domainObjectName="OrderPayment" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
