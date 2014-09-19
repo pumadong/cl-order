@@ -24,7 +24,7 @@ public class AcceptDetail {
 
     private BigDecimal discount;
 
-    private Integer quality;
+    private Short quality;
 
     private Integer refId;
 
@@ -116,11 +116,11 @@ public class AcceptDetail {
         this.discount = discount;
     }
 
-    public Integer getQuality() {
+    public Short getQuality() {
         return quality;
     }
 
-    public void setQuality(Integer quality) {
+    public void setQuality(Short quality) {
         this.quality = quality;
     }
 

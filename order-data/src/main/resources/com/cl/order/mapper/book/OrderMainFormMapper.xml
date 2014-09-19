@@ -10,11 +10,11 @@
     <result column="goods_price" property="goodsPrice" jdbcType="DECIMAL" />
     <result column="deliver_price" property="deliverPrice" jdbcType="DECIMAL" />
     <result column="paid_price" property="paidPrice" jdbcType="DECIMAL" />
-    <result column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="payment_type_id" property="paymentTypeId" jdbcType="TINYINT" />
     <result column="payment_type_name" property="paymentTypeName" jdbcType="VARCHAR" />
-    <result column="payment_status" property="paymentStatus" jdbcType="INTEGER" />
-    <result column="source_ref_id" property="sourceRefId" jdbcType="INTEGER" />
-    <result column="source_pos_id" property="sourcePosId" jdbcType="INTEGER" />
+    <result column="payment_status" property="paymentStatus" jdbcType="TINYINT" />
+    <result column="source_ref_id" property="sourceRefId" jdbcType="TINYINT" />
+    <result column="source_pos_id" property="sourcePosId" jdbcType="TINYINT" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
@@ -44,9 +44,9 @@
       update_person, update_date)
     values (#{formCode,jdbcType=VARCHAR}, #{orderTypeId,jdbcType=INTEGER}, #{memberId,jdbcType=INTEGER}, 
       #{consigneeId,jdbcType=INTEGER}, #{totalPrice,jdbcType=DECIMAL}, #{goodsPrice,jdbcType=DECIMAL}, 
-      #{deliverPrice,jdbcType=DECIMAL}, #{paidPrice,jdbcType=DECIMAL}, #{paymentTypeId,jdbcType=INTEGER}, 
-      #{paymentTypeName,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=INTEGER}, #{sourceRefId,jdbcType=INTEGER}, 
-      #{sourcePosId,jdbcType=INTEGER}, #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{deliverPrice,jdbcType=DECIMAL}, #{paidPrice,jdbcType=DECIMAL}, #{paymentTypeId,jdbcType=TINYINT}, 
+      #{paymentTypeName,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=TINYINT}, #{sourceRefId,jdbcType=TINYINT}, 
+      #{sourcePosId,jdbcType=TINYINT}, #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
       #{updatePerson,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.cl.order.model.book.OrderMainForm" >
@@ -130,19 +130,19 @@
         #{paidPrice,jdbcType=DECIMAL},
       </if>
       <if test="paymentTypeId != null" >
-        #{paymentTypeId,jdbcType=INTEGER},
+        #{paymentTypeId,jdbcType=TINYINT},
       </if>
       <if test="paymentTypeName != null" >
         #{paymentTypeName,jdbcType=VARCHAR},
       </if>
       <if test="paymentStatus != null" >
-        #{paymentStatus,jdbcType=INTEGER},
+        #{paymentStatus,jdbcType=TINYINT},
       </if>
       <if test="sourceRefId != null" >
-        #{sourceRefId,jdbcType=INTEGER},
+        #{sourceRefId,jdbcType=TINYINT},
       </if>
       <if test="sourcePosId != null" >
-        #{sourcePosId,jdbcType=INTEGER},
+        #{sourcePosId,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         #{createPerson,jdbcType=VARCHAR},
@@ -183,19 +183,19 @@
         paid_price = #{paidPrice,jdbcType=DECIMAL},
       </if>
       <if test="paymentTypeId != null" >
-        payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+        payment_type_id = #{paymentTypeId,jdbcType=TINYINT},
       </if>
       <if test="paymentTypeName != null" >
         payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
       </if>
       <if test="paymentStatus != null" >
-        payment_status = #{paymentStatus,jdbcType=INTEGER},
+        payment_status = #{paymentStatus,jdbcType=TINYINT},
       </if>
       <if test="sourceRefId != null" >
-        source_ref_id = #{sourceRefId,jdbcType=INTEGER},
+        source_ref_id = #{sourceRefId,jdbcType=TINYINT},
       </if>
       <if test="sourcePosId != null" >
-        source_pos_id = #{sourcePosId,jdbcType=INTEGER},
+        source_pos_id = #{sourcePosId,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         create_person = #{createPerson,jdbcType=VARCHAR},
@@ -221,11 +221,11 @@
       goods_price = #{goodsPrice,jdbcType=DECIMAL},
       deliver_price = #{deliverPrice,jdbcType=DECIMAL},
       paid_price = #{paidPrice,jdbcType=DECIMAL},
-      payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      payment_type_id = #{paymentTypeId,jdbcType=TINYINT},
       payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
-      payment_status = #{paymentStatus,jdbcType=INTEGER},
-      source_ref_id = #{sourceRefId,jdbcType=INTEGER},
-      source_pos_id = #{sourcePosId,jdbcType=INTEGER},
+      payment_status = #{paymentStatus,jdbcType=TINYINT},
+      source_ref_id = #{sourceRefId,jdbcType=TINYINT},
+      source_pos_id = #{sourcePosId,jdbcType=TINYINT},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_person = #{updatePerson,jdbcType=VARCHAR},

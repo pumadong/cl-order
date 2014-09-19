@@ -24,7 +24,7 @@ public class OrderForm {
 
     private String warehouseName;
 
-    private Integer deliverTypeId;
+    private Byte deliverTypeId;
 
     private String deliverTypeName;
 
@@ -32,17 +32,17 @@ public class OrderForm {
 
     private String expressName;
 
-    private Integer paymentTypeId;
+    private Byte paymentTypeId;
 
     private String paymentTypeName;
 
-    private Integer quality;
+    private Short quality;
 
     private Double weight;
 
-    private Integer status;
+    private Byte status;
 
-    private Integer paymentStatus;
+    private Byte paymentStatus;
 
     private String createPerson;
 
@@ -132,11 +132,11 @@ public class OrderForm {
         this.warehouseName = warehouseName;
     }
 
-    public Integer getDeliverTypeId() {
+    public Byte getDeliverTypeId() {
         return deliverTypeId;
     }
 
-    public void setDeliverTypeId(Integer deliverTypeId) {
+    public void setDeliverTypeId(Byte deliverTypeId) {
         this.deliverTypeId = deliverTypeId;
     }
 
@@ -164,11 +164,11 @@ public class OrderForm {
         this.expressName = expressName;
     }
 
-    public Integer getPaymentTypeId() {
+    public Byte getPaymentTypeId() {
         return paymentTypeId;
     }
 
-    public void setPaymentTypeId(Integer paymentTypeId) {
+    public void setPaymentTypeId(Byte paymentTypeId) {
         this.paymentTypeId = paymentTypeId;
     }
 
@@ -180,11 +180,11 @@ public class OrderForm {
         this.paymentTypeName = paymentTypeName;
     }
 
-    public Integer getQuality() {
+    public Short getQuality() {
         return quality;
     }
 
-    public void setQuality(Integer quality) {
+    public void setQuality(Short quality) {
         this.quality = quality;
     }
 
@@ -196,19 +196,19 @@ public class OrderForm {
         this.weight = weight;
     }
 
-    public Integer getStatus() {
+    public Byte getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Byte status) {
         this.status = status;
     }
 
-    public Integer getPaymentStatus() {
+    public Byte getPaymentStatus() {
         return paymentStatus;
     }
 
-    public void setPaymentStatus(Integer paymentStatus) {
+    public void setPaymentStatus(Byte paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
 

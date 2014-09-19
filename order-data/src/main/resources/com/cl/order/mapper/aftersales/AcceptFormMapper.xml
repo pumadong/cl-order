@@ -4,16 +4,16 @@
   <resultMap id="BaseResultMap" type="com.cl.order.model.aftersales.AcceptForm" >
     <id column="accept_code" property="acceptCode" jdbcType="VARCHAR" />
     <result column="form_code" property="formCode" jdbcType="VARCHAR" />
-    <result column="return_type_id" property="returnTypeId" jdbcType="INTEGER" />
+    <result column="return_type_id" property="returnTypeId" jdbcType="TINYINT" />
     <result column="consignee_id" property="consigneeId" jdbcType="INTEGER" />
     <result column="return_money" property="returnMoney" jdbcType="DECIMAL" />
     <result column="exchange_money" property="exchangeMoney" jdbcType="DECIMAL" />
     <result column="warehouse_id" property="warehouseId" jdbcType="INTEGER" />
     <result column="warehouse_name" property="warehouseName" jdbcType="VARCHAR" />
     <result column="exchange_form_code" property="exchangeFormCode" jdbcType="VARCHAR" />
-    <result column="reason_id" property="reasonId" jdbcType="INTEGER" />
+    <result column="reason_id" property="reasonId" jdbcType="TINYINT" />
     <result column="reason_name" property="reasonName" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
@@ -41,10 +41,10 @@
       reason_id, reason_name, status, 
       create_person, create_date, update_person, 
       update_date)
-    values (#{acceptCode,jdbcType=VARCHAR}, #{formCode,jdbcType=VARCHAR}, #{returnTypeId,jdbcType=INTEGER}, 
+    values (#{acceptCode,jdbcType=VARCHAR}, #{formCode,jdbcType=VARCHAR}, #{returnTypeId,jdbcType=TINYINT}, 
       #{consigneeId,jdbcType=INTEGER}, #{returnMoney,jdbcType=DECIMAL}, #{exchangeMoney,jdbcType=DECIMAL}, 
       #{warehouseId,jdbcType=INTEGER}, #{warehouseName,jdbcType=VARCHAR}, #{exchangeFormCode,jdbcType=VARCHAR}, 
-      #{reasonId,jdbcType=INTEGER}, #{reasonName,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{reasonId,jdbcType=TINYINT}, #{reasonName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
       #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, 
       #{updateDate,jdbcType=TIMESTAMP})
   </insert>
@@ -108,7 +108,7 @@
         #{formCode,jdbcType=VARCHAR},
       </if>
       <if test="returnTypeId != null" >
-        #{returnTypeId,jdbcType=INTEGER},
+        #{returnTypeId,jdbcType=TINYINT},
       </if>
       <if test="consigneeId != null" >
         #{consigneeId,jdbcType=INTEGER},
@@ -129,13 +129,13 @@
         #{exchangeFormCode,jdbcType=VARCHAR},
       </if>
       <if test="reasonId != null" >
-        #{reasonId,jdbcType=INTEGER},
+        #{reasonId,jdbcType=TINYINT},
       </if>
       <if test="reasonName != null" >
         #{reasonName,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=INTEGER},
+        #{status,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         #{createPerson,jdbcType=VARCHAR},
@@ -158,7 +158,7 @@
         form_code = #{formCode,jdbcType=VARCHAR},
       </if>
       <if test="returnTypeId != null" >
-        return_type_id = #{returnTypeId,jdbcType=INTEGER},
+        return_type_id = #{returnTypeId,jdbcType=TINYINT},
       </if>
       <if test="consigneeId != null" >
         consignee_id = #{consigneeId,jdbcType=INTEGER},
@@ -179,13 +179,13 @@
         exchange_form_code = #{exchangeFormCode,jdbcType=VARCHAR},
       </if>
       <if test="reasonId != null" >
-        reason_id = #{reasonId,jdbcType=INTEGER},
+        reason_id = #{reasonId,jdbcType=TINYINT},
       </if>
       <if test="reasonName != null" >
         reason_name = #{reasonName,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
+        status = #{status,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         create_person = #{createPerson,jdbcType=VARCHAR},
@@ -205,16 +205,16 @@
   <update id="updateByPrimaryKey" parameterType="com.cl.order.model.aftersales.AcceptForm" >
     update o_accept_form
     set form_code = #{formCode,jdbcType=VARCHAR},
-      return_type_id = #{returnTypeId,jdbcType=INTEGER},
+      return_type_id = #{returnTypeId,jdbcType=TINYINT},
       consignee_id = #{consigneeId,jdbcType=INTEGER},
       return_money = #{returnMoney,jdbcType=DECIMAL},
       exchange_money = #{exchangeMoney,jdbcType=DECIMAL},
       warehouse_id = #{warehouseId,jdbcType=INTEGER},
       warehouse_name = #{warehouseName,jdbcType=VARCHAR},
       exchange_form_code = #{exchangeFormCode,jdbcType=VARCHAR},
-      reason_id = #{reasonId,jdbcType=INTEGER},
+      reason_id = #{reasonId,jdbcType=TINYINT},
       reason_name = #{reasonName,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_person = #{updatePerson,jdbcType=VARCHAR},

@@ -12,7 +12,7 @@
     <result column="size" property="size" jdbcType="VARCHAR" />
     <result column="sell_price" property="sellPrice" jdbcType="DECIMAL" />
     <result column="discount" property="discount" jdbcType="DECIMAL" />
-    <result column="quality" property="quality" jdbcType="INTEGER" />
+    <result column="quality" property="quality" jdbcType="SMALLINT" />
     <result column="ref_id" property="refId" jdbcType="INTEGER" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
@@ -44,7 +44,7 @@
     values (#{id,jdbcType=INTEGER}, #{acceptCode,jdbcType=VARCHAR}, #{direction,jdbcType=INTEGER}, 
       #{orderDetailId,jdbcType=INTEGER}, #{commodityNo,jdbcType=VARCHAR}, #{commodityName,jdbcType=VARCHAR}, 
       #{productNo,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, #{sellPrice,jdbcType=DECIMAL}, 
-      #{discount,jdbcType=DECIMAL}, #{quality,jdbcType=INTEGER}, #{refId,jdbcType=INTEGER}, 
+      #{discount,jdbcType=DECIMAL}, #{quality,jdbcType=SMALLINT}, #{refId,jdbcType=INTEGER}, 
       #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, 
       #{updateDate,jdbcType=TIMESTAMP})
   </insert>
@@ -132,7 +132,7 @@
         #{discount,jdbcType=DECIMAL},
       </if>
       <if test="quality != null" >
-        #{quality,jdbcType=INTEGER},
+        #{quality,jdbcType=SMALLINT},
       </if>
       <if test="refId != null" >
         #{refId,jdbcType=INTEGER},
@@ -182,7 +182,7 @@
         discount = #{discount,jdbcType=DECIMAL},
       </if>
       <if test="quality != null" >
-        quality = #{quality,jdbcType=INTEGER},
+        quality = #{quality,jdbcType=SMALLINT},
       </if>
       <if test="refId != null" >
         ref_id = #{refId,jdbcType=INTEGER},
@@ -213,7 +213,7 @@
       size = #{size,jdbcType=VARCHAR},
       sell_price = #{sellPrice,jdbcType=DECIMAL},
       discount = #{discount,jdbcType=DECIMAL},
-      quality = #{quality,jdbcType=INTEGER},
+      quality = #{quality,jdbcType=SMALLINT},
       ref_id = #{refId,jdbcType=INTEGER},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},

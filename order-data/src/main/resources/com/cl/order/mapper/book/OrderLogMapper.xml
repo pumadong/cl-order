@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.cl.order.model.book.OrderLog" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="form_code" property="formCode" jdbcType="VARCHAR" />
-    <result column="log_type_id" property="logTypeId" jdbcType="INTEGER" />
+    <result column="log_type_id" property="logTypeId" jdbcType="TINYINT" />
     <result column="log_content" property="logContent" jdbcType="VARCHAR" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
@@ -27,7 +27,7 @@
     insert into o_order_log (id, form_code, log_type_id, 
       log_content, create_person, create_date, 
       create_ip)
-    values (#{id,jdbcType=INTEGER}, #{formCode,jdbcType=VARCHAR}, #{logTypeId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{formCode,jdbcType=VARCHAR}, #{logTypeId,jdbcType=TINYINT}, 
       #{logContent,jdbcType=VARCHAR}, #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
       #{createIp,jdbcType=VARCHAR})
   </insert>
@@ -64,7 +64,7 @@
         #{formCode,jdbcType=VARCHAR},
       </if>
       <if test="logTypeId != null" >
-        #{logTypeId,jdbcType=INTEGER},
+        #{logTypeId,jdbcType=TINYINT},
       </if>
       <if test="logContent != null" >
         #{logContent,jdbcType=VARCHAR},
@@ -87,7 +87,7 @@
         form_code = #{formCode,jdbcType=VARCHAR},
       </if>
       <if test="logTypeId != null" >
-        log_type_id = #{logTypeId,jdbcType=INTEGER},
+        log_type_id = #{logTypeId,jdbcType=TINYINT},
       </if>
       <if test="logContent != null" >
         log_content = #{logContent,jdbcType=VARCHAR},
@@ -107,7 +107,7 @@
   <update id="updateByPrimaryKey" parameterType="com.cl.order.model.book.OrderLog" >
     update o_order_log
     set form_code = #{formCode,jdbcType=VARCHAR},
-      log_type_id = #{logTypeId,jdbcType=INTEGER},
+      log_type_id = #{logTypeId,jdbcType=TINYINT},
       log_content = #{logContent,jdbcType=VARCHAR},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},

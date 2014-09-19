@@ -7,7 +7,7 @@ public class OrderLog {
 
     private String formCode;
 
-    private Integer logTypeId;
+    private Byte logTypeId;
 
     private String logContent;
 
@@ -33,11 +33,11 @@ public class OrderLog {
         this.formCode = formCode;
     }
 
-    public Integer getLogTypeId() {
+    public Byte getLogTypeId() {
         return logTypeId;
     }
 
-    public void setLogTypeId(Integer logTypeId) {
+    public void setLogTypeId(Byte logTypeId) {
         this.logTypeId = logTypeId;
     }
 

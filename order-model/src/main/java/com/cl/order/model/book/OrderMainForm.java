@@ -20,15 +20,15 @@ public class OrderMainForm {
 
     private BigDecimal paidPrice;
 
-    private Integer paymentTypeId;
+    private Byte paymentTypeId;
 
     private String paymentTypeName;
 
-    private Integer paymentStatus;
+    private Byte paymentStatus;
 
-    private Integer sourceRefId;
+    private Byte sourceRefId;
 
-    private Integer sourcePosId;
+    private Byte sourcePosId;
 
     private String createPerson;
 
@@ -102,11 +102,11 @@ public class OrderMainForm {
         this.paidPrice = paidPrice;
     }
 
-    public Integer getPaymentTypeId() {
+    public Byte getPaymentTypeId() {
         return paymentTypeId;
     }
 
-    public void setPaymentTypeId(Integer paymentTypeId) {
+    public void setPaymentTypeId(Byte paymentTypeId) {
         this.paymentTypeId = paymentTypeId;
     }
 
@@ -118,27 +118,27 @@ public class OrderMainForm {
         this.paymentTypeName = paymentTypeName;
     }
 
-    public Integer getPaymentStatus() {
+    public Byte getPaymentStatus() {
         return paymentStatus;
     }
 
-    public void setPaymentStatus(Integer paymentStatus) {
+    public void setPaymentStatus(Byte paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
 
-    public Integer getSourceRefId() {
+    public Byte getSourceRefId() {
         return sourceRefId;
     }
 
-    public void setSourceRefId(Integer sourceRefId) {
+    public void setSourceRefId(Byte sourceRefId) {
         this.sourceRefId = sourceRefId;
     }
 
-    public Integer getSourcePosId() {
+    public Byte getSourcePosId() {
         return sourcePosId;
     }
 
-    public void setSourcePosId(Integer sourcePosId) {
+    public void setSourcePosId(Byte sourcePosId) {
         this.sourcePosId = sourcePosId;
     }
 

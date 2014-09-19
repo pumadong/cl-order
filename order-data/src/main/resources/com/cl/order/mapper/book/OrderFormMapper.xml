@@ -12,16 +12,16 @@
     <result column="paid_price" property="paidPrice" jdbcType="DECIMAL" />
     <result column="warehouse_id" property="warehouseId" jdbcType="INTEGER" />
     <result column="warehouse_name" property="warehouseName" jdbcType="VARCHAR" />
-    <result column="deliver_type_id" property="deliverTypeId" jdbcType="INTEGER" />
+    <result column="deliver_type_id" property="deliverTypeId" jdbcType="TINYINT" />
     <result column="deliver_type_name" property="deliverTypeName" jdbcType="VARCHAR" />
     <result column="express_id" property="expressId" jdbcType="INTEGER" />
     <result column="express_name" property="expressName" jdbcType="VARCHAR" />
-    <result column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="payment_type_id" property="paymentTypeId" jdbcType="TINYINT" />
     <result column="payment_type_name" property="paymentTypeName" jdbcType="VARCHAR" />
-    <result column="quality" property="quality" jdbcType="INTEGER" />
+    <result column="quality" property="quality" jdbcType="SMALLINT" />
     <result column="weight" property="weight" jdbcType="DOUBLE" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-    <result column="payment_status" property="paymentStatus" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="payment_status" property="paymentStatus" jdbcType="TINYINT" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
@@ -56,10 +56,10 @@
     values (#{formCode,jdbcType=VARCHAR}, #{mainFormCode,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, 
       #{consigneeId,jdbcType=INTEGER}, #{totalPrice,jdbcType=DECIMAL}, #{goodsPrice,jdbcType=DECIMAL}, 
       #{deliverPrice,jdbcType=DECIMAL}, #{paidPrice,jdbcType=DECIMAL}, #{warehouseId,jdbcType=INTEGER}, 
-      #{warehouseName,jdbcType=VARCHAR}, #{deliverTypeId,jdbcType=INTEGER}, #{deliverTypeName,jdbcType=VARCHAR}, 
-      #{expressId,jdbcType=INTEGER}, #{expressName,jdbcType=VARCHAR}, #{paymentTypeId,jdbcType=INTEGER}, 
-      #{paymentTypeName,jdbcType=VARCHAR}, #{quality,jdbcType=INTEGER}, #{weight,jdbcType=DOUBLE}, 
-      #{status,jdbcType=INTEGER}, #{paymentStatus,jdbcType=INTEGER}, #{createPerson,jdbcType=VARCHAR}, 
+      #{warehouseName,jdbcType=VARCHAR}, #{deliverTypeId,jdbcType=TINYINT}, #{deliverTypeName,jdbcType=VARCHAR}, 
+      #{expressId,jdbcType=INTEGER}, #{expressName,jdbcType=VARCHAR}, #{paymentTypeId,jdbcType=TINYINT}, 
+      #{paymentTypeName,jdbcType=VARCHAR}, #{quality,jdbcType=SMALLINT}, #{weight,jdbcType=DOUBLE}, 
+      #{status,jdbcType=TINYINT}, #{paymentStatus,jdbcType=TINYINT}, #{createPerson,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -171,7 +171,7 @@
         #{warehouseName,jdbcType=VARCHAR},
       </if>
       <if test="deliverTypeId != null" >
-        #{deliverTypeId,jdbcType=INTEGER},
+        #{deliverTypeId,jdbcType=TINYINT},
       </if>
       <if test="deliverTypeName != null" >
         #{deliverTypeName,jdbcType=VARCHAR},
@@ -183,22 +183,22 @@
         #{expressName,jdbcType=VARCHAR},
       </if>
       <if test="paymentTypeId != null" >
-        #{paymentTypeId,jdbcType=INTEGER},
+        #{paymentTypeId,jdbcType=TINYINT},
       </if>
       <if test="paymentTypeName != null" >
         #{paymentTypeName,jdbcType=VARCHAR},
       </if>
       <if test="quality != null" >
-        #{quality,jdbcType=INTEGER},
+        #{quality,jdbcType=SMALLINT},
       </if>
       <if test="weight != null" >
         #{weight,jdbcType=DOUBLE},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=INTEGER},
+        #{status,jdbcType=TINYINT},
       </if>
       <if test="paymentStatus != null" >
-        #{paymentStatus,jdbcType=INTEGER},
+        #{paymentStatus,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         #{createPerson,jdbcType=VARCHAR},
@@ -245,7 +245,7 @@
         warehouse_name = #{warehouseName,jdbcType=VARCHAR},
       </if>
       <if test="deliverTypeId != null" >
-        deliver_type_id = #{deliverTypeId,jdbcType=INTEGER},
+        deliver_type_id = #{deliverTypeId,jdbcType=TINYINT},
       </if>
       <if test="deliverTypeName != null" >
         deliver_type_name = #{deliverTypeName,jdbcType=VARCHAR},
@@ -257,22 +257,22 @@
         express_name = #{expressName,jdbcType=VARCHAR},
       </if>
       <if test="paymentTypeId != null" >
-        payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+        payment_type_id = #{paymentTypeId,jdbcType=TINYINT},
       </if>
       <if test="paymentTypeName != null" >
         payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
       </if>
       <if test="quality != null" >
-        quality = #{quality,jdbcType=INTEGER},
+        quality = #{quality,jdbcType=SMALLINT},
       </if>
       <if test="weight != null" >
         weight = #{weight,jdbcType=DOUBLE},
       </if>
       <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
+        status = #{status,jdbcType=TINYINT},
       </if>
       <if test="paymentStatus != null" >
-        payment_status = #{paymentStatus,jdbcType=INTEGER},
+        payment_status = #{paymentStatus,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         create_person = #{createPerson,jdbcType=VARCHAR},
@@ -300,16 +300,16 @@
       paid_price = #{paidPrice,jdbcType=DECIMAL},
       warehouse_id = #{warehouseId,jdbcType=INTEGER},
       warehouse_name = #{warehouseName,jdbcType=VARCHAR},
-      deliver_type_id = #{deliverTypeId,jdbcType=INTEGER},
+      deliver_type_id = #{deliverTypeId,jdbcType=TINYINT},
       deliver_type_name = #{deliverTypeName,jdbcType=VARCHAR},
       express_id = #{expressId,jdbcType=INTEGER},
       express_name = #{expressName,jdbcType=VARCHAR},
-      payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      payment_type_id = #{paymentTypeId,jdbcType=TINYINT},
       payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
-      quality = #{quality,jdbcType=INTEGER},
+      quality = #{quality,jdbcType=SMALLINT},
       weight = #{weight,jdbcType=DOUBLE},
-      status = #{status,jdbcType=INTEGER},
-      payment_status = #{paymentStatus,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      payment_status = #{paymentStatus,jdbcType=TINYINT},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_person = #{updatePerson,jdbcType=VARCHAR},

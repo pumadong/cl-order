@@ -8,7 +8,7 @@ public class AcceptForm {
 
     private String formCode;
 
-    private Integer returnTypeId;
+    private Byte returnTypeId;
 
     private Integer consigneeId;
 
@@ -22,11 +22,11 @@ public class AcceptForm {
 
     private String exchangeFormCode;
 
-    private Integer reasonId;
+    private Byte reasonId;
 
     private String reasonName;
 
-    private Integer status;
+    private Byte status;
 
     private String createPerson;
 
@@ -52,11 +52,11 @@ public class AcceptForm {
         this.formCode = formCode;
     }
 
-    public Integer getReturnTypeId() {
+    public Byte getReturnTypeId() {
         return returnTypeId;
     }
 
-    public void setReturnTypeId(Integer returnTypeId) {
+    public void setReturnTypeId(Byte returnTypeId) {
         this.returnTypeId = returnTypeId;
     }
 
@@ -108,11 +108,11 @@ public class AcceptForm {
         this.exchangeFormCode = exchangeFormCode;
     }
 
-    public Integer getReasonId() {
+    public Byte getReasonId() {
         return reasonId;
     }
 
-    public void setReasonId(Integer reasonId) {
+    public void setReasonId(Byte reasonId) {
         this.reasonId = reasonId;
     }
 
@@ -124,11 +124,11 @@ public class AcceptForm {
         this.reasonName = reasonName;
     }
 
-    public Integer getStatus() {
+    public Byte getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Byte status) {
         this.status = status;
     }
 

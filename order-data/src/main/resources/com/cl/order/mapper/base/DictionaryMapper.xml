@@ -3,15 +3,15 @@
 <mapper namespace="com.cl.order.mapper.base.DictionaryMapper" >
   <resultMap id="BaseResultMap" type="com.cl.order.model.base.Dictionary" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="'group'" property="'group'" jdbcType="VARCHAR" />
-    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="group" property="group" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="TINYINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="sort_no" property="sortNo" jdbcType="INTEGER" />
+    <result column="sort_no" property="sortNo" jdbcType="TINYINT" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, 'group', code, name, sort_no, create_person, create_date
+    id, `group`, code, name, sort_no, create_person, create_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -24,11 +24,11 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.cl.order.model.base.Dictionary" >
-    insert into o_dictionary (id, 'group', code, 
+    insert into o_dictionary (id, group, code, 
       name, sort_no, create_person, 
       create_date)
-    values (#{id,jdbcType=INTEGER}, #{'group',jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{sortNo,jdbcType=INTEGER}, #{createPerson,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{group,jdbcType=VARCHAR}, #{code,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{sortNo,jdbcType=TINYINT}, #{createPerson,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.cl.order.model.base.Dictionary" >
@@ -37,8 +37,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="'group' != null" >
-        'group',
+      <if test="group != null" >
+        group,
       </if>
       <if test="code != null" >
         code,
@@ -60,17 +60,17 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="'group' != null" >
-        #{'group',jdbcType=VARCHAR},
+      <if test="group != null" >
+        #{group,jdbcType=VARCHAR},
       </if>
       <if test="code != null" >
-        #{code,jdbcType=VARCHAR},
+        #{code,jdbcType=TINYINT},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="sortNo != null" >
-        #{sortNo,jdbcType=INTEGER},
+        #{sortNo,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         #{createPerson,jdbcType=VARCHAR},
@@ -83,17 +83,17 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.cl.order.model.base.Dictionary" >
     update o_dictionary
     <set >
-      <if test="'group' != null" >
-        'group' = #{'group',jdbcType=VARCHAR},
+      <if test="group != null" >
+        group = #{group,jdbcType=VARCHAR},
       </if>
       <if test="code != null" >
-        code = #{code,jdbcType=VARCHAR},
+        code = #{code,jdbcType=TINYINT},
       </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="sortNo != null" >
-        sort_no = #{sortNo,jdbcType=INTEGER},
+        sort_no = #{sortNo,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         create_person = #{createPerson,jdbcType=VARCHAR},
@@ -106,10 +106,10 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cl.order.model.base.Dictionary" >
     update o_dictionary
-    set 'group' = #{'group',jdbcType=VARCHAR},
-      code = #{code,jdbcType=VARCHAR},
+    set group = #{group,jdbcType=VARCHAR},
+      code = #{code,jdbcType=TINYINT},
       name = #{name,jdbcType=VARCHAR},
-      sort_no = #{sortNo,jdbcType=INTEGER},
+      sort_no = #{sortNo,jdbcType=TINYINT},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

@@ -6,10 +6,10 @@
     <result column="form_code" property="formCode" jdbcType="VARCHAR" />
     <result column="return_code" property="returnCode" jdbcType="VARCHAR" />
     <result column="member_id" property="memberId" jdbcType="INTEGER" />
-    <result column="refund_type_id" property="refundTypeId" jdbcType="INTEGER" />
-    <result column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="refund_type_id" property="refundTypeId" jdbcType="TINYINT" />
+    <result column="payment_type_id" property="paymentTypeId" jdbcType="TINYINT" />
     <result column="refund_money" property="refundMoney" jdbcType="DECIMAL" />
-    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
@@ -36,8 +36,8 @@
       create_date, update_person, update_date
       )
     values (#{refundCode,jdbcType=VARCHAR}, #{formCode,jdbcType=VARCHAR}, #{returnCode,jdbcType=VARCHAR}, 
-      #{memberId,jdbcType=INTEGER}, #{refundTypeId,jdbcType=INTEGER}, #{paymentTypeId,jdbcType=INTEGER}, 
-      #{refundMoney,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, #{createPerson,jdbcType=VARCHAR}, 
+      #{memberId,jdbcType=INTEGER}, #{refundTypeId,jdbcType=TINYINT}, #{paymentTypeId,jdbcType=TINYINT}, 
+      #{refundMoney,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, #{createPerson,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -95,16 +95,16 @@
         #{memberId,jdbcType=INTEGER},
       </if>
       <if test="refundTypeId != null" >
-        #{refundTypeId,jdbcType=INTEGER},
+        #{refundTypeId,jdbcType=TINYINT},
       </if>
       <if test="paymentTypeId != null" >
-        #{paymentTypeId,jdbcType=INTEGER},
+        #{paymentTypeId,jdbcType=TINYINT},
       </if>
       <if test="refundMoney != null" >
         #{refundMoney,jdbcType=DECIMAL},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=INTEGER},
+        #{status,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         #{createPerson,jdbcType=VARCHAR},
@@ -133,16 +133,16 @@
         member_id = #{memberId,jdbcType=INTEGER},
       </if>
       <if test="refundTypeId != null" >
-        refund_type_id = #{refundTypeId,jdbcType=INTEGER},
+        refund_type_id = #{refundTypeId,jdbcType=TINYINT},
       </if>
       <if test="paymentTypeId != null" >
-        payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+        payment_type_id = #{paymentTypeId,jdbcType=TINYINT},
       </if>
       <if test="refundMoney != null" >
         refund_money = #{refundMoney,jdbcType=DECIMAL},
       </if>
       <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
+        status = #{status,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         create_person = #{createPerson,jdbcType=VARCHAR},
@@ -164,10 +164,10 @@
     set form_code = #{formCode,jdbcType=VARCHAR},
       return_code = #{returnCode,jdbcType=VARCHAR},
       member_id = #{memberId,jdbcType=INTEGER},
-      refund_type_id = #{refundTypeId,jdbcType=INTEGER},
-      payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      refund_type_id = #{refundTypeId,jdbcType=TINYINT},
+      payment_type_id = #{paymentTypeId,jdbcType=TINYINT},
       refund_money = #{refundMoney,jdbcType=DECIMAL},
-      status = #{status,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_person = #{updatePerson,jdbcType=VARCHAR},

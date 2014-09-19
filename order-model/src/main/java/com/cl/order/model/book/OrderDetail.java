@@ -20,9 +20,9 @@ public class OrderDetail {
 
     private BigDecimal discount;
 
-    private Integer quality;
+    private Short quality;
 
-    private Integer returnQuality;
+    private Short returnQuality;
 
     private String createPerson;
 
@@ -96,19 +96,19 @@ public class OrderDetail {
         this.discount = discount;
     }
 
-    public Integer getQuality() {
+    public Short getQuality() {
         return quality;
     }
 
-    public void setQuality(Integer quality) {
+    public void setQuality(Short quality) {
         this.quality = quality;
     }
 
-    public Integer getReturnQuality() {
+    public Short getReturnQuality() {
         return returnQuality;
     }
 
-    public void setReturnQuality(Integer returnQuality) {
+    public void setReturnQuality(Short returnQuality) {
         this.returnQuality = returnQuality;
     }
 

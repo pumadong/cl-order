@@ -7,7 +7,7 @@ public class AcceptLog {
 
     private String acceptCode;
 
-    private Integer logTypeId;
+    private Byte logTypeId;
 
     private String logContent;
 
@@ -33,11 +33,11 @@ public class AcceptLog {
         this.acceptCode = acceptCode;
     }
 
-    public Integer getLogTypeId() {
+    public Byte getLogTypeId() {
         return logTypeId;
     }
 
-    public void setLogTypeId(Integer logTypeId) {
+    public void setLogTypeId(Byte logTypeId) {
         this.logTypeId = logTypeId;
     }
 

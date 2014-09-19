@@ -10,8 +10,8 @@
     <result column="size" property="size" jdbcType="VARCHAR" />
     <result column="sell_price" property="sellPrice" jdbcType="DECIMAL" />
     <result column="discount" property="discount" jdbcType="DECIMAL" />
-    <result column="quality" property="quality" jdbcType="INTEGER" />
-    <result column="return_quality" property="returnQuality" jdbcType="INTEGER" />
+    <result column="quality" property="quality" jdbcType="SMALLINT" />
+    <result column="return_quality" property="returnQuality" jdbcType="SMALLINT" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
@@ -39,8 +39,8 @@
       update_person, update_date)
     values (#{id,jdbcType=INTEGER}, #{formCode,jdbcType=VARCHAR}, #{commodityNo,jdbcType=VARCHAR}, 
       #{commodityName,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, 
-      #{sellPrice,jdbcType=DECIMAL}, #{discount,jdbcType=DECIMAL}, #{quality,jdbcType=INTEGER}, 
-      #{returnQuality,jdbcType=INTEGER}, #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{sellPrice,jdbcType=DECIMAL}, #{discount,jdbcType=DECIMAL}, #{quality,jdbcType=SMALLINT}, 
+      #{returnQuality,jdbcType=SMALLINT}, #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
       #{updatePerson,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.cl.order.model.book.OrderDetail" >
@@ -115,10 +115,10 @@
         #{discount,jdbcType=DECIMAL},
       </if>
       <if test="quality != null" >
-        #{quality,jdbcType=INTEGER},
+        #{quality,jdbcType=SMALLINT},
       </if>
       <if test="returnQuality != null" >
-        #{returnQuality,jdbcType=INTEGER},
+        #{returnQuality,jdbcType=SMALLINT},
       </if>
       <if test="createPerson != null" >
         #{createPerson,jdbcType=VARCHAR},
@@ -159,10 +159,10 @@
         discount = #{discount,jdbcType=DECIMAL},
       </if>
       <if test="quality != null" >
-        quality = #{quality,jdbcType=INTEGER},
+        quality = #{quality,jdbcType=SMALLINT},
       </if>
       <if test="returnQuality != null" >
-        return_quality = #{returnQuality,jdbcType=INTEGER},
+        return_quality = #{returnQuality,jdbcType=SMALLINT},
       </if>
       <if test="createPerson != null" >
         create_person = #{createPerson,jdbcType=VARCHAR},
@@ -188,8 +188,8 @@
       size = #{size,jdbcType=VARCHAR},
       sell_price = #{sellPrice,jdbcType=DECIMAL},
       discount = #{discount,jdbcType=DECIMAL},
-      quality = #{quality,jdbcType=INTEGER},
-      return_quality = #{returnQuality,jdbcType=INTEGER},
+      quality = #{quality,jdbcType=SMALLINT},
+      return_quality = #{returnQuality,jdbcType=SMALLINT},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_person = #{updatePerson,jdbcType=VARCHAR},

@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.cl.order.model.aftersales.ReturnPayment" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="return_code" property="returnCode" jdbcType="VARCHAR" />
-    <result column="payment_type_id" property="paymentTypeId" jdbcType="INTEGER" />
+    <result column="payment_type_id" property="paymentTypeId" jdbcType="TINYINT" />
     <result column="payment_type_name" property="paymentTypeName" jdbcType="VARCHAR" />
     <result column="return_money" property="returnMoney" jdbcType="DECIMAL" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     insert into o_return_payment (id, return_code, payment_type_id, 
       payment_type_name, return_money, create_person, 
       create_date)
-    values (#{id,jdbcType=INTEGER}, #{returnCode,jdbcType=VARCHAR}, #{paymentTypeId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{returnCode,jdbcType=VARCHAR}, #{paymentTypeId,jdbcType=TINYINT}, 
       #{paymentTypeName,jdbcType=VARCHAR}, #{returnMoney,jdbcType=DECIMAL}, #{createPerson,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP})
   </insert>
@@ -65,7 +65,7 @@
         #{returnCode,jdbcType=VARCHAR},
       </if>
       <if test="paymentTypeId != null" >
-        #{paymentTypeId,jdbcType=INTEGER},
+        #{paymentTypeId,jdbcType=TINYINT},
       </if>
       <if test="paymentTypeName != null" >
         #{paymentTypeName,jdbcType=VARCHAR},
@@ -88,7 +88,7 @@
         return_code = #{returnCode,jdbcType=VARCHAR},
       </if>
       <if test="paymentTypeId != null" >
-        payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+        payment_type_id = #{paymentTypeId,jdbcType=TINYINT},
       </if>
       <if test="paymentTypeName != null" >
         payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
@@ -108,7 +108,7 @@
   <update id="updateByPrimaryKey" parameterType="com.cl.order.model.aftersales.ReturnPayment" >
     update o_return_payment
     set return_code = #{returnCode,jdbcType=VARCHAR},
-      payment_type_id = #{paymentTypeId,jdbcType=INTEGER},
+      payment_type_id = #{paymentTypeId,jdbcType=TINYINT},
       payment_type_name = #{paymentTypeName,jdbcType=VARCHAR},
       return_money = #{returnMoney,jdbcType=DECIMAL},
       create_person = #{createPerson,jdbcType=VARCHAR},

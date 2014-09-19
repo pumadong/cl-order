@@ -7,11 +7,11 @@ public class Dictionary {
 
     private String group;
 
-    private String code;
+    private Byte code;
 
     private String name;
 
-    private Integer sortNo;
+    private Byte sortNo;
 
     private String createPerson;
 
@@ -33,11 +33,11 @@ public class Dictionary {
         this.group = group;
     }
 
-    public String getCode() {
+    public Byte getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Byte code) {
         this.code = code;
     }
 
@@ -49,11 +49,11 @@ public class Dictionary {
         this.name = name;
     }
 
-    public Integer getSortNo() {
+    public Byte getSortNo() {
         return sortNo;
     }
 
-    public void setSortNo(Integer sortNo) {
+    public void setSortNo(Byte sortNo) {
         this.sortNo = sortNo;
     }
 

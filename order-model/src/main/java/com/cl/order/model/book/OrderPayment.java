@@ -8,7 +8,7 @@ public class OrderPayment {
 
     private String formCode;
 
-    private Integer paymentTypeId;
+    private Byte paymentTypeId;
 
     private String paymentTypeName;
 
@@ -34,11 +34,11 @@ public class OrderPayment {
         this.formCode = formCode;
     }
 
-    public Integer getPaymentTypeId() {
+    public Byte getPaymentTypeId() {
         return paymentTypeId;
     }
 
-    public void setPaymentTypeId(Integer paymentTypeId) {
+    public void setPaymentTypeId(Byte paymentTypeId) {
         this.paymentTypeId = paymentTypeId;
     }
 

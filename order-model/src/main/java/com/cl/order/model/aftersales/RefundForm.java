@@ -12,13 +12,13 @@ public class RefundForm {
 
     private Integer memberId;
 
-    private Integer refundTypeId;
+    private Byte refundTypeId;
 
-    private Integer paymentTypeId;
+    private Byte paymentTypeId;
 
     private BigDecimal refundMoney;
 
-    private Integer status;
+    private Byte status;
 
     private String createPerson;
 
@@ -60,19 +60,19 @@ public class RefundForm {
         this.memberId = memberId;
     }
 
-    public Integer getRefundTypeId() {
+    public Byte getRefundTypeId() {
         return refundTypeId;
     }
 
-    public void setRefundTypeId(Integer refundTypeId) {
+    public void setRefundTypeId(Byte refundTypeId) {
         this.refundTypeId = refundTypeId;
     }
 
-    public Integer getPaymentTypeId() {
+    public Byte getPaymentTypeId() {
         return paymentTypeId;
     }
 
-    public void setPaymentTypeId(Integer paymentTypeId) {
+    public void setPaymentTypeId(Byte paymentTypeId) {
         this.paymentTypeId = paymentTypeId;
     }
 
@@ -84,11 +84,11 @@ public class RefundForm {
         this.refundMoney = refundMoney;
     }
 
-    public Integer getStatus() {
+    public Byte getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Byte status) {
         this.status = status;
     }
 
